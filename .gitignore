@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+node_modules/
+__pycache__/
+*.log
+dist/
+build/
+# Real config and secrets — never commit
+shopee-bot-v05/private/config.php
+*.key
+*.pem
