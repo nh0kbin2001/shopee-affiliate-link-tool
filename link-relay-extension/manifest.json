@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Cashback Link Relay",
+  "version": "0.1.0",
+  "description": "Tạo link Custom Link (kèm sub_id) trong tab affiliate.shopee.vn đang đăng nhập, cho hệ thống cashback nội bộ.",
+  "minimum_chrome_version": "111",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://affiliate.shopee.vn/*",
+    "https://bot.dailyhotdeals.biz/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://affiliate.shopee.vn/*"],
+      "js": ["relay-main.js"],
+      "world": "MAIN",
+      "run_at": "document_idle",
+      "all_frames": false
+    },
+    {
+      "matches": ["https://affiliate.shopee.vn/*"],
+      "js": ["relay-content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Cashback Link Relay"
+  }
+}

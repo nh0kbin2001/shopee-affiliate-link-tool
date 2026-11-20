@@ -1,0 +1,7 @@
+{
+  "event_id": "test-event-1",
+  "conversion_id": "test-order-1-item-1",
+  "tracking_token": "REPLACE_FROM_BOT_LINK",
+  "state": "settled",
+  "commission_vnd": 20000
+}

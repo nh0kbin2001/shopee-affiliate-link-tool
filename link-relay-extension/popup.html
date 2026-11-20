@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>Cashback Link Relay</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <h1>Cashback Link Relay</h1>
+  <p id="status" class="status">Đang tải…</p>
+
+  <label class="row"><input type="checkbox" id="enabled"> Bật relay</label>
+  <label for="backendUrl">Backend</label>
+  <input id="backendUrl" type="url" placeholder="https://bot.dailyhotdeals.biz">
+  <label for="relayKey">Relay key (relay_key trong config.php)</label>
+  <input id="relayKey" type="password" autocomplete="off" placeholder="64 ký tự hex">
+  <label for="dailyLimit">Giới hạn link/ngày</label>
+  <input id="dailyLimit" type="number" min="1" max="2000">
+
+  <div class="actions">
+    <button id="save" type="button">Lưu</button>
+    <button id="test" type="button" class="ghost">Thử backend</button>
+    <button id="resume" type="button" class="ghost">Tiếp tục</button>
+  </div>
+  <p id="msg" class="msg" role="status"></p>
+  <p class="hint">Giữ một tab affiliate.shopee.vn đang đăng nhập mở. Relay tự dừng khi Shopee từ chối; kiểm tra rồi bấm “Tiếp tục”.</p>
+  <script src="popup.js"></script>
+</body>
+</html>
