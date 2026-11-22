@@ -26,9 +26,25 @@ Based on the code in this repo:
   - `open_api`: Shopee Affiliate Open API client. Written and unit-tested against mocked responses; **waiting for official API credentials**. The request signature format must still be checked against Shopee's docs.
 - **Order/commission import.** Conversion handling works with TEST events (`private/import_test.php`). The automatic sync from the affiliate report is not verified against real data yet.
 
+## packages/affiliate (in progress)
+
+TypeScript package (pnpm workspace, zod, vitest). It is the start of the platform's `packages/affiliate`:
+
+- `src/schema.ts`: zod `Offer` schema with `offerId`, `partner`, `deeplink` (https only), `geo {lat, lng}`, `priceVnd` (≥ 0), `currency`, `lastVerifiedAt`.
+- `src/registry.ts`: in-memory registry with `addOffer`, `getOffer(offerId)`, `listOffersNear(lat, lng, radiusKm)`. Postgres comes later.
+- `src/resolver.ts`: `resolveItinerary(json)` maps each `offer_id` to its deeplink from the registry. Unknown IDs are dropped and logged. The output is built from scratch, so **no raw URL from the input (e.g. LLM output) can reach it**.
+
+```bash
+pnpm install
+pnpm typecheck
+pnpm test
+```
+
+CI (`.github/workflows/ci.yml`) runs the same three steps on every push to `main` and on pull requests.
+
 ## Roadmap
 
-- Offer registry with zod-validated offer IDs
+- Offer registry: Postgres storage (in-memory version done in `packages/affiliate`)
 - Partner sync workers (Agoda, Klook, Booking, GetYourGuide, ...)
 - Nightly dead-link checker
 - Click tracking
