@@ -1,0 +1,9 @@
+{
+  "name": "shopee-affiliate-link-tool",
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test"
+  }
+}

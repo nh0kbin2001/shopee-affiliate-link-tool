@@ -1,0 +1,20 @@
+{
+  "name": "@platform/affiliate",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Offer registry and itinerary resolver: maps offer IDs to vetted affiliate deeplinks.",
+  "main": "src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.2",
+    "typescript": "5.6.3",
+    "vitest": "2.1.8"
+  }
+}
